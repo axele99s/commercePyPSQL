@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="797762de-8770-4724-8b70-ff53b03c0cdc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/db/clienteDB.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/empleadoDB.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/py/Categoria.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/py/Cliente.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/py/DetalleFactura.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/py/Empleado.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/py/Factura.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/py/FormaPago.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/py/Localidad.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/py/Marca.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/py/Producto.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/py/Provincia.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="797762de-8770-4724-8b70-ff53b03c0cdc" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -143,6 +128,7 @@
       <updated>1729262995180</updated>
       <workItem from="1729263014151" duration="11581000" />
       <workItem from="1729289790305" duration="3142000" />
+      <workItem from="1729293260057" duration="13000" />
     </task>
     <servers />
   </component>
