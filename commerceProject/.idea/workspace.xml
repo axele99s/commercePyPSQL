@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="797762de-8770-4724-8b70-ff53b03c0cdc" name="Changes" comment="" />
+    <list default="true" id="797762de-8770-4724-8b70-ff53b03c0cdc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/db/clienteDB.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/empleadoDB.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/py/Categoria.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/py/Cliente.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/py/DetalleFactura.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/py/Empleado.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/py/Factura.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/py/FormaPago.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/py/Localidad.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/py/Marca.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/py/Producto.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/py/Provincia.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,37 +32,48 @@
       </list>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/db/clienteDB.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/db/empleadoDB.py" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2ncCUlvIEJPPsrFbGGeBoVXXbmW" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.DBconnection.executor": "Run",
-    "Python.Persona.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.personaDB.executor": "Run",
-    "Python.ventana_Test.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.DBconnection.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Persona.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.personaDB.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ventana_Test.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\axele\Desktop\CommercePY\commerceProject\py" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main">
     <configuration name="DBconnection" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="commerceProject" />
       <option name="ENV_FILES" value="" />
@@ -115,18 +141,29 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1729262995180</updated>
-      <workItem from="1729263014151" duration="10348000" />
+      <workItem from="1729263014151" duration="11581000" />
+      <workItem from="1729289790305" duration="3142000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/db/personaDB.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/commerceProject$personaDB.coverage" NAME="personaDB Coverage Results" MODIFIED="1729270464981" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/db" />
     <SUITE FILE_PATH="coverage/commerceProject$ventana_Test.coverage" NAME="ventana_Test Coverage Results" MODIFIED="1729273619972" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/win" />
     <SUITE FILE_PATH="coverage/commerceProject$Persona.coverage" NAME="Persona Coverage Results" MODIFIED="1729273111483" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/py" />
-    <SUITE FILE_PATH="coverage/commerceProject$main.coverage" NAME="main Coverage Results" MODIFIED="1729273633042" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/commerceProject$main.coverage" NAME="main Coverage Results" MODIFIED="1729292936968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/commerceProject$DBconnection.coverage" NAME="DBconnection Coverage Results" MODIFIED="1729270868657" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/db" />
   </component>
 </project>

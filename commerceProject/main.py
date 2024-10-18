@@ -2,7 +2,11 @@ import sys
 from PyQt6.QtWidgets import QApplication
 
 from db.DBconnection import DBconnection
+from db.clienteDB import clienteDB
+from db.empleadoDB import empleadoDB
 from db.personaDB import PersonaDB
+from py.Cliente import Cliente
+from py.Empleado import Empleado
 from py.Persona import Persona
 from win.ventana_Test import VentanaPrueba
 
@@ -27,8 +31,19 @@ if __name__ == '__main__':
     #per_LogicaDB.agregarPersona(nueva_persona)
 
     # Cerrar la conexión al final
-    DBCon.close()
+
+    clientesDb = clienteDB(DBCon)
+    clientes: list[Cliente] = clientesDb.cargarClientes()
+    for cliente in clientes:
+        print(cliente.getNombre())
+
+
+    empleadoDb = empleadoDB(DBCon)
+    empleados : list[Empleado] = empleadoDb.cargarEmpleados()
+    for empleado in empleados:
+        print(empleado.getNombre())
 
     app = QApplication(sys.argv)
-    ventana = VentanaPrueba(personas)  # Instancia la clase VentanaPrueba
-    sys.exit(app.exec())
+    DBCon.close()
+    """ventana = VentanaPrueba(personas)  # Instancia la clase VentanaPrueba
+    sys.exit(app.exec())"""
