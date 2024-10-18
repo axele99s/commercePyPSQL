@@ -1,0 +1,56 @@
+-- Inserción de datos en la tabla PROVINCIA
+INSERT INTO PROVINCIA (idProvincia, codigoProvincia, nombreProvincia) VALUES
+(1, 101, 'Buenos Aires'),
+(2, 102, 'Córdoba'),
+(3, 103, 'Santa Fe');
+
+-- Inserción de datos en la tabla LOCALIDAD
+INSERT INTO LOCALIDAD (idLocalidad, idProvincia, codigoLocalidad, nombreLocalidad) VALUES
+(1, 1, 201, 'La Plata'),
+(2, 2, 202, 'Córdoba'),
+(3, 3, 203, 'Rosario');
+
+-- Inserción de datos en la tabla PERSONA
+INSERT INTO PERSONA (idPersona, idLocalidad, nombre, apellido, dni, tipoDNI) VALUES
+(1, 1, 'Juan', 'Pérez', 12345678, 1),
+(2, 2, 'María', 'Gómez', 87654321, 1),
+(3, 3, 'Carlos', 'López', 11223344, 1);
+
+-- Inserción de datos en la tabla CLIENTE
+INSERT INTO CLIENTE (idPersona, idCliente, codigoCliente) VALUES
+(1, 1, 1001),
+(2, 2, 1002);
+
+-- Inserción de datos en la tabla EMPLEADO
+INSERT INTO EMPLEADO (idPersona, idEmpleado, codigoEmpleado) VALUES
+(3, 1, 2001);
+
+-- Inserción de datos en la tabla CATEGORIA
+INSERT INTO CATEGORIA (idCategoria, descripcion, codigo) VALUES
+(1, 'Electrónica', 3001),
+(2, 'Hogar', 3002);
+
+-- Inserción de datos en la tabla MARCA
+INSERT INTO MARCA (idMarca, descripcion, codigo) VALUES
+(1, 'Samsung', 4001),
+(2, 'LG', 4002);
+
+-- Inserción de datos en la tabla PRODUCTO
+INSERT INTO PRODUCTO (idProducto, idCategoria, idMarca, descripcion, codigo, precio) VALUES
+(1, 1, 1, 'Televisor LED 42"', 5001, 35000.50),
+(2, 1, 2, 'Heladera No Frost', 5002, 45000.75);
+
+-- Inserción de datos en la tabla FORMA_PAGO
+INSERT INTO FORMA_PAGO (idFormaPago, codigo, descripcion) VALUES
+(1, 6001, 'Efectivo'),
+(2, 6002, 'Tarjeta de Crédito');
+
+-- Inserción de datos en la tabla FACTURA
+INSERT INTO FACTURA (idFactura, idEmpleado, idCliente, fecha, idFormaPago) VALUES
+(1, 1, 1, '2024-10-17', 1),
+(2, 1, 2, '2024-10-18', 2);
+
+-- Inserción de datos en la tabla DETALLE_FACTURA
+INSERT INTO DETALLE_FACTURA (idFactura, idProducto, cantidad, precioUnitario) VALUES
+(1, 1, 2, 35000.50),
+(2, 2, 1, 45000.75);
