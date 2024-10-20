@@ -121,3 +121,5 @@ ALTER TABLE LOCALIDAD ALTER COLUMN idLocalidad SET DEFAULT nextval('localidad_se
 ALTER TABLE PERSONA ALTER COLUMN idPersona SET DEFAULT nextval('persona_seq');
 ALTER TABLE PRODUCTO ALTER COLUMN idProducto SET DEFAULT nextval('producto_seq');
 ALTER TABLE PROVINCIA ALTER COLUMN idProvincia SET DEFAULT nextval('provincia_seq');
+-- Nota <- lo de arriba se podía solucionar con un SERIAL en lugar de crear todos los nextval… asociar las sequence…alter table... etc
+ -- Pero bueno ya lo hice asi :(
