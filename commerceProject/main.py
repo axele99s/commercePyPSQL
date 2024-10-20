@@ -1,7 +1,5 @@
 import sys
 from PyQt6.QtWidgets import QApplication
-
-from db.DBconnection import DBconnection
 from db.clienteDB import clienteDB
 from db.empleadoDB import empleadoDB
 from db.personaDB import PersonaDB
@@ -9,7 +7,25 @@ from py.Cliente import Cliente
 from py.Empleado import Empleado
 from py.Persona import Persona
 from win.ventana_Test import VentanaPrueba
+from db.loginDB import loginDB
+from db.DBconnection import DBconnection
+from win.wLogin import wLogin
 
+
+
+if __name__ == '__main__':
+    dbCon = DBconnection("localhost", "postgres", "1234", "commerce")
+    dbCon.connect()
+    loginn = loginDB(dbCon)
+
+
+
+    app = QApplication(sys.argv)
+    window = wLogin(loginn)  # Crear una instancia de la clase wLogin
+    window.show()
+    sys.exit(app.exec())
+
+"""
 if __name__ == '__main__':
     # Crear una instancia de DBconnection
     DBCon = DBconnection("localhost", "postgres", "1234", "commerce")
@@ -45,5 +61,5 @@ if __name__ == '__main__':
 
     app = QApplication(sys.argv)
     DBCon.close()
-    """ventana = VentanaPrueba(personas)  # Instancia la clase VentanaPrueba
+    ventana = VentanaPrueba(personas)  # Instancia la clase VentanaPrueba
     sys.exit(app.exec())"""

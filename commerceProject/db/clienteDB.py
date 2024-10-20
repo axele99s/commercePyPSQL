@@ -4,6 +4,7 @@ from py.Cliente import Cliente
 class clienteDB:
     def __init__(self, db_connection):
         self.db_connection = db_connection
+        clientes : list[Cliente] = []
 
     def cargarClientes(self):
         cursor = self.db_connection.cursor()
@@ -13,7 +14,7 @@ class clienteDB:
         cursor.execute(query)
         rows = cursor.fetchall()
 
-        clientes : list[Cliente] = []
+
         for row in rows:
             idCliente, codigoCliente, idPersona, nombre, apellido, dni, tipoDNI, idLocalidad = row
             cliente = Cliente(idCliente, idPersona, nombre, apellido, dni, tipoDNI, idLocalidad, codigoCliente)
