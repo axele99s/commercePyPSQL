@@ -2,6 +2,7 @@ from py.Empleado import Empleado
 class empleadoDB:
     def __init__(self, db_connection):
         self.db_connection = db_connection
+        self.empleados : list[Empleado]
 
     def cargarEmpleados(self):
         cursor = self.db_connection.cursor()
@@ -13,12 +14,12 @@ class empleadoDB:
         cursor.execute(query)
         rows = cursor.fetchall()
 
-        empleados : list[Empleado] = []
+
 
         for row in rows:
             idEmpleado, codigoEmpleado, idPersona, nombre, apellido, dni, tipoDNI, idLocalidad = row
             empleado = Empleado(idEmpleado, idPersona, nombre, apellido, dni, tipoDNI, idLocalidad, codigoEmpleado)
-            empleados.append(empleado)
+            self.empleados.append(empleado)
 
         cursor.close()
         return empleados

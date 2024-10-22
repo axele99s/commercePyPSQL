@@ -3,6 +3,7 @@ from PyQt6.QtWidgets import QApplication
 from db.clienteDB import clienteDB
 from db.empleadoDB import empleadoDB
 from db.personaDB import PersonaDB
+from db.productoDB import productoDB
 from py.Cliente import Cliente
 from py.Empleado import Empleado
 from py.Persona import Persona
@@ -19,6 +20,8 @@ if __name__ == '__main__':
     loginn = loginDB(dbCon)
 
 
+    productodb = productoDB(dbCon)
+    productodb.cargarProductos()
 
     app = QApplication(sys.argv)
     window = wLogin(loginn)  # Crear una instancia de la clase wLogin

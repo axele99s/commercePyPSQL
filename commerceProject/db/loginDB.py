@@ -25,7 +25,7 @@ class loginDB:
             cursor.close()
             return True
 
-        cursor.close()
+        #cursor.close()
         return False  # Retornar False si no encuentra al usuario
 
     def verUsuario(self):

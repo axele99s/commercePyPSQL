@@ -38,6 +38,7 @@ class wLogin(QWidget):
         logeo = self.loginn.validarLogin(username, password)
         if logeo:
             QMessageBox.information(self, 'Inicio de sesion', 'Sesion iniciada correctamente!')
+            self.close()
         else:
             QMessageBox.warning(self, 'Error', 'Verificar usuario o contraseña.')
 

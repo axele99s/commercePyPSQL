@@ -8,4 +8,4 @@ class Producto:
         self.precio = precio
 
     def __str__(self):
-        return f"Producto: {self.descripcion} (Código: {self.codigo}, Precio: {self.precio})"
+        return "Producto: {self.descripcion} (Código: {self.codigo}, Precio: {self.precio})"
