@@ -5,7 +5,7 @@ class productoDB:
     def __init__(self,db_con):
         self.db_con = db_con
         self.productos : list[Producto] = []
-
+        self.cargarProductos()
     def cargarProductos(self):
         cursor = self.db_con.cursor()
 
@@ -17,5 +17,7 @@ class productoDB:
            idprod,idmarca, idcategoria,descripcion,codigo,precio = row
            prod = Producto(idprod,idmarca,idcategoria,descripcion,codigo,precio)
            self.productos.append(prod)
-            #print({"desc:"}, descripcion,{" cod:"},codigo, {"precio: "},precio)
 
+
+    def getProductos(self):
+        return self.productos

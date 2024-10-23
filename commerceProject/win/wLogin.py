@@ -1,11 +1,18 @@
-import sys
+
 from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QLineEdit, QPushButton, QMessageBox
+from PyQt6.QtCore import pyqtSignal
 from db.loginDB import loginDB
+from db.DBconnection import DBconnection
+from db.productoDB import productoDB
+from win.wPrincipalEmpleados import principalEmpleados
 
 class wLogin(QWidget):
-    def __init__(self,loginn : loginDB = None):
+    login_successful = pyqtSignal()  # Definir una señal
+
+    def __init__(self, loginn: loginDB = None):
         super().__init__()
 
+        self.estado = False
         self.loginn = loginn
         self.setWindowTitle('Iniciar Sesion')
         self.setGeometry(100, 100, 300, 150)
@@ -38,9 +45,8 @@ class wLogin(QWidget):
         logeo = self.loginn.validarLogin(username, password)
         if logeo:
             QMessageBox.information(self, 'Inicio de sesion', 'Sesion iniciada correctamente!')
-            self.close()
+            self.estado = True
+            self.login_successful.emit()  # Emitir la señal de éxito
+            self.close()  # Cerrar la ventana
         else:
             QMessageBox.warning(self, 'Error', 'Verificar usuario o contraseña.')
-
-
-

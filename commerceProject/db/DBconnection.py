@@ -7,6 +7,7 @@ class DBconnection:
         self.password = password
         self.database = database
         self.connection = None
+        self.status = "Not Started"
 
     def connect(self):
         try:
@@ -16,16 +17,16 @@ class DBconnection:
                 password=self.password,
                 database=self.database
             )
-            print("Conexión exitosa.")
+            self.status = "Connected"
             return True
         except Exception as ex:
-            print(f"Error al conectar a la base de datos: {ex}")
+            self.status = f"Error: {ex}"
             return False
 
     def close(self):
         if self.connection:
             self.connection.close()
-            print("Conexión cerrada.")
+          
 
     def cursor(self):
         if self.connection:
@@ -44,3 +45,6 @@ class DBconnection:
             self.connection.rollback()
         else:
             raise Exception("No hay conexión a la base de datos para hacer rollback.")
+
+    def getStatus(self):
+        return self.status

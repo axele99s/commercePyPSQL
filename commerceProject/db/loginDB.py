@@ -35,3 +35,7 @@ class loginDB:
     def vercON(self):
         return self.db_connection
 
+    def verCon(self):
+
+        return self.db_connection
+

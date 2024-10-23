@@ -1,68 +1,38 @@
 import sys
-from PyQt6.QtWidgets import QApplication
-from db.clienteDB import clienteDB
-from db.empleadoDB import empleadoDB
-from db.personaDB import PersonaDB
-from db.productoDB import productoDB
-from py.Cliente import Cliente
-from py.Empleado import Empleado
-from py.Persona import Persona
-from win.ventana_Test import VentanaPrueba
+from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QTabWidget
+
 from db.loginDB import loginDB
-from db.DBconnection import DBconnection
 from win.wLogin import wLogin
-
-
+from win.wPrincipalEmpleados import principalEmpleados
+from db.DBconnection import DBconnection
+from db.productoDB import productoDB
+from win.ventana_Test import ventana_Test
 
 if __name__ == '__main__':
-    dbCon = DBconnection("localhost", "postgres", "1234", "commerce")
-    dbCon.connect()
-    loginn = loginDB(dbCon)
-
-
-    productodb = productoDB(dbCon)
-    productodb.cargarProductos()
-
     app = QApplication(sys.argv)
-    window = wLogin(loginn)  # Crear una instancia de la clase wLogin
-    window.show()
-    sys.exit(app.exec())
 
-"""
-if __name__ == '__main__':
-    # Crear una instancia de DBconnection
+    # Configurar la conexión a la base de datos
     DBCon = DBconnection("localhost", "postgres", "1234", "commerce")
+    result = DBCon.connect()
 
-    # Conectar a la base de datos
-    DBCon.connect() # Estoy ASUMIENDO que si me conecto (deberia ser un if <--- cambiar)
+    if DBCon.connect():
 
-    # me conecto a la logica de personas de la base de datos
-    per_LogicaDB = PersonaDB(DBCon)
+        base_productos = productoDB(DBCon)
+        loginn = loginDB(DBCon)
 
-    # Cargo las personas
-    personas : list[Persona] = per_LogicaDB.cargar_personas()
+        # Crear la ventana de inicio de sesión
+        login_window = wLogin(loginn)
 
-    # Imprimir los nombres de las personas cargadas
-    for persona in personas:
-        print(persona.verID())
+        # Variable para mantener la referencia a la ventana de empleados
+        empleados_window = principalEmpleados(base_productos.getProductos())
 
-    #nueva_persona = Persona(idPersona=None,idLocalidad=1, nombre="Steve", apellido="Jobs", dni="123456", tipoDNI=1)
-    #per_LogicaDB.agregarPersona(nueva_persona)
+        # Conectar la señal a la función que muestra la ventana de empleados
+        login_window.login_successful.connect(empleados_window.show)
 
-    # Cerrar la conexión al final
+        login_window.show()
+    else:
+        # Cambia esto para pasar un mensaje de error
+        error_window = ventana_Test(DBCon.getStatus())
+        error_window.show()
 
-    clientesDb = clienteDB(DBCon)
-    clientes: list[Cliente] = clientesDb.cargarClientes()
-    for cliente in clientes:
-        print(cliente.getNombre())
-
-
-    empleadoDb = empleadoDB(DBCon)
-    empleados : list[Empleado] = empleadoDb.cargarEmpleados()
-    for empleado in empleados:
-        print(empleado.getNombre())
-
-    app = QApplication(sys.argv)
-    DBCon.close()
-    ventana = VentanaPrueba(personas)  # Instancia la clase VentanaPrueba
-    sys.exit(app.exec())"""
+    sys.exit(app.exec())

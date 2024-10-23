@@ -9,3 +9,12 @@ class Producto:
 
     def __str__(self):
         return "Producto: {self.descripcion} (Código: {self.codigo}, Precio: {self.precio})"
+
+    def getPrecio(self):
+        return self.precio
+
+    def getCodigo(self):
+        return self.codigo
+
+    def getDescripcion(self):
+        return self.descripcion
