@@ -50,3 +50,11 @@ class wLogin(QWidget):
             self.close()  # Cerrar la ventana
         else:
             QMessageBox.warning(self, 'Error', 'Verificar usuario o contraseña.')
+
+
+    def ventanaError(self,mensaje : str):
+        self.setWindowTitle('Error')
+        layout = QVBoxLayout()
+        error_label = QLabel(mensaje)
+        layout.addWidget(error_label)
+        self.setLayout(layout)

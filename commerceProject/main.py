@@ -6,7 +6,7 @@ from win.wLogin import wLogin
 from win.wPrincipalEmpleados import principalEmpleados
 from db.DBconnection import DBconnection
 from db.productoDB import productoDB
-from win.ventana_Test import ventana_Test
+from win.wErrores import ventanaError
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
@@ -32,7 +32,7 @@ if __name__ == '__main__':
         login_window.show()
     else:
         # Cambia esto para pasar un mensaje de error
-        error_window = ventana_Test(DBCon.getStatus())
+        error_window = ventanaError(DBCon.getStatus())
         error_window.show()
 
     sys.exit(app.exec())

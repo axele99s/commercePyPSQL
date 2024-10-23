@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="797762de-8770-4724-8b70-ff53b03c0cdc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/db/productoIMGDB.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/py/productoIMG.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/win/menuPrincipalEmpleado/wGestionProductos.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/win/wPrincipalEmpleados.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/DBconnection.py" beforeDir="false" afterPath="$PROJECT_DIR$/db/DBconnection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/loginDB.py" beforeDir="false" afterPath="$PROJECT_DIR$/db/loginDB.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/productoDB.py" beforeDir="false" afterPath="$PROJECT_DIR$/db/productoDB.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/Producto.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/Producto.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/win/ventana_Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/win/ventana_Test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/win/wLogin.py" beforeDir="false" afterPath="$PROJECT_DIR$/win/wLogin.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -164,6 +155,7 @@
       <workItem from="1729642644061" duration="3155000" />
       <workItem from="1729645885066" duration="1338000" />
       <workItem from="1729647289318" duration="597000" />
+      <workItem from="1729648862214" duration="330000" />
     </task>
     <servers />
   </component>
@@ -189,7 +181,7 @@
     <SUITE FILE_PATH="coverage/commerceProject$productoDB.coverage" NAME="productoDB Coverage Results" MODIFIED="1729637367530" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/db" />
     <SUITE FILE_PATH="coverage/commerceProject$gestionProductos.coverage" NAME="gestionProductos Coverage Results" MODIFIED="1729640925223" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/win/menuPrincipalEmpleado" />
     <SUITE FILE_PATH="coverage/commerceProject$Persona.coverage" NAME="Persona Coverage Results" MODIFIED="1729273111483" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/py" />
-    <SUITE FILE_PATH="coverage/commerceProject$main.coverage" NAME="main Coverage Results" MODIFIED="1729647191390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/commerceProject$main.coverage" NAME="main Coverage Results" MODIFIED="1729649322960" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/commerceProject$DBconnection.coverage" NAME="DBconnection Coverage Results" MODIFIED="1729270868657" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/db" />
   </component>
 </project>
