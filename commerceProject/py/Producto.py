@@ -7,9 +7,6 @@ class Producto:
         self.codigo = codigo
         self.precio = precio
 
-    def __str__(self):
-        return "Producto: {self.descripcion} (Código: {self.codigo}, Precio: {self.precio})"
-
     def getPrecio(self):
         return self.precio
 
@@ -18,3 +15,9 @@ class Producto:
 
     def getDescripcion(self):
         return self.descripcion
+
+    def getCategoria(self):
+        return self.idCategoria
+
+    def getMarca(self):
+        return self.idMarca

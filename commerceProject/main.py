@@ -12,7 +12,10 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
 
     # Configurar la conexión a la base de datos
-    DBCon = DBconnection("localhost", "postgres", "1234", "commerce")
+    DBCon = DBconnection("ep-snowy-heart-a4ie70mb.us-east-1.aws.neon.tech",
+                         "commerceDB_owner",
+                         "xiq1v5mAYIpC",
+                         "commerceDB")
     result = DBCon.connect()
 
     if DBCon.connect():
@@ -24,7 +27,7 @@ if __name__ == '__main__':
         login_window = wLogin(loginn)
 
         # Variable para mantener la referencia a la ventana de empleados
-        empleados_window = principalEmpleados(base_productos.getProductos())
+        empleados_window = principalEmpleados(base_productos)
 
         # Conectar la señal a la función que muestra la ventana de empleados
         login_window.login_successful.connect(empleados_window.show)

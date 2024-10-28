@@ -2,15 +2,15 @@
 
 from PyQt6.QtWidgets import QWidget, QVBoxLayout, QTabWidget, QPushButton
 from win.menuPrincipalEmpleado.wGestionProductos import gestionProductos
-
+from db.productoDB import productoDB
 class principalEmpleados(QWidget):
-    def __init__(self, productos):
+    def __init__(self, db_prods : productoDB = None):
         super().__init__()
         self.setWindowTitle('Panel de Empleados')
-
+        self.db_prods = db_prods
         # Crear el widget de pestañas
         self.tabs = QTabWidget()
-        self.tabs.addTab(gestionProductos(productos), 'Productos')  # Agrega la pestaña de productos
+        self.tabs.addTab(gestionProductos(db_prods), 'Productos')  # Agrega la pestaña de productos
 
         # Crear el botón para volver al login
         self.back_button = QPushButton('Volver al Login')

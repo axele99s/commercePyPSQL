@@ -2,28 +2,27 @@ from PyQt6.QtWidgets import QWidget, QVBoxLayout, QTableView, QPushButton, QLine
 from PyQt6.QtGui import QStandardItemModel, QStandardItem
 from PyQt6.QtCore import Qt
 from py.Producto import Producto
+from win.menuPrincipalEmpleado.wAgregarProducto import wAgregarProducto
+from db.productoDB import productoDB
 
 class gestionProductos(QWidget):
-    def __init__(self, productos):
+
+    def __init__(self, db_prods : productoDB = None):
         super().__init__()
-        self.lista_productos = productos  # Guardar la lista de productos
+        self.db_prods = db_prods
+        self.lista_productos = self.db_prods.getProductos()  # Guardar la lista de productos
         self.setLayout(QVBoxLayout())  # Establecer layout principal
 
         # Llamar a ventanaProducto para crear la interfaz antes de cargar productos
-        self.ventanaProducto()
+        self.ventanaBuscar()  # Contiene la ventana que incluye agregarProd , editar, eliminar, el buscador
+        self.ventanaProductos() # Solo contiene las filas y columnas de los productos
+        self.ventanasExtras()
 
         # Cargar los productos después de que la tabla ha sido creada
         self.cargarProductos()
 
-    def ventanaProducto(self):
-        # Crear el layout para la búsqueda
-        search_layout = QHBoxLayout()
-        self.product_search = QLineEdit()  # Campo de búsqueda
+    def ventanaProductos(self):
 
-        search_button = QPushButton('Buscar')  # Botón de búsqueda
-        search_layout.addWidget(QLabel('Buscar Producto:'))  # Etiqueta de búsqueda
-        search_layout.addWidget(self.product_search)  # Añadir el campo de búsqueda
-        search_layout.addWidget(search_button)  # Añadir el botón de búsqueda
 
         # Inicializa el modelo y la vista de productos
         self.product_table = QTableView()  # Cambiar a QTableView
@@ -34,19 +33,13 @@ class gestionProductos(QWidget):
         self.product_table.setModel(self.model)
         self.product_table.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.Stretch)  # Ajustar columnas al tamaño
 
-        # Crear el layout para gestionar productos
-        manage_layout = QHBoxLayout()
-        add_button = QPushButton('Agregar Producto')  # Botón para agregar
-        edit_button = QPushButton('Editar Producto')  # Botón para editar
-        delete_button = QPushButton('Eliminar Producto')  # Botón para eliminar
-        manage_layout.addWidget(add_button)  # Añadir botón de agregar
-        manage_layout.addWidget(edit_button)  # Añadir botón de editar
-        manage_layout.addWidget(delete_button)  # Añadir botón de eliminar
+
 
         # Añadir los layouts y la tabla al layout principal
-        self.layout().addLayout(search_layout)  # Añadir el layout de búsqueda
+
         self.layout().addWidget(self.product_table)  # Añadir la tabla
-        self.layout().addLayout(manage_layout)  # Añadir el layout de gestión
+
+
 
         # Establecer que las celdas no sean editables
         self.product_table.setEditTriggers(QTableView.EditTrigger.NoEditTriggers)
@@ -70,3 +63,32 @@ class gestionProductos(QWidget):
 
             # Añadir los items al modelo
             self.model.appendRow([item_id, item_nombre, item_precio])
+
+    def ventanaBuscar(self):
+        # Crear el layout para la búsqueda
+        search_layout = QHBoxLayout()
+        self.product_search = QLineEdit()  # Campo de búsqueda
+
+        search_button = QPushButton('Buscar')  # Botón de búsqueda
+        search_layout.addWidget(QLabel('Buscar Producto:'))  # Etiqueta de búsqueda
+        search_layout.addWidget(self.product_search)  # Añadir el campo de búsqueda
+        search_layout.addWidget(search_button)  # Añadir el botón de búsqueda
+        self.layout().addLayout(search_layout)  # Añadir el layout de búsqueda
+        """Falta la logica !!!!!! """
+
+
+    def ventanasExtras(self):
+        # Crear el layout para gestionar productos
+        manage_layout = QHBoxLayout()
+        agregar_producto = QPushButton('Agregar Producto')  # Botón para agregar
+        agregar_producto.clicked.connect(self.agregarProducto)
+        edit_button = QPushButton('Editar ')  # Botón para editar
+        delete_button = QPushButton('Eliminar Producto')  # Botón para eliminar
+        manage_layout.addWidget(agregar_producto)  # Añadir botón de agregar
+        manage_layout.addWidget(edit_button)  # Añadir botón de editar
+        manage_layout.addWidget(delete_button)  # Añadir botón de eliminarProducto
+        self.layout().addLayout(manage_layout)  # Añadir el layout de gestión
+
+    def agregarProducto(self):
+        ventana_agregar = wAgregarProducto(self, self.db_prods)
+        ventana_agregar.exec()
