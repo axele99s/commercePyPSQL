@@ -1,4 +1,4 @@
-from PyQt6.QtWidgets import QWidget, QVBoxLayout, QTableView, QPushButton, QLineEdit, QHBoxLayout, QLabel, QHeaderView
+from PyQt6.QtWidgets import QWidget, QVBoxLayout, QTableView, QPushButton, QLineEdit, QHBoxLayout, QLabel, QHeaderView, QMessageBox
 from PyQt6.QtGui import QStandardItemModel, QStandardItem
 from PyQt6.QtCore import Qt
 from py.Producto import Producto
@@ -21,19 +21,20 @@ class gestionProductos(QWidget):
         # Cargar los productos después de que la tabla ha sido creada
         self.cargarProductos()
 
+
+    # Ventana general, aca se carga la grilla y demas...
     def ventanaProductos(self):
-
-
         # Inicializa el modelo y la vista de productos
         self.product_table = QTableView()  # Cambiar a QTableView
         self.model = QStandardItemModel(0, 3)  # 0 filas, 3 columnas
-        self.model.setHorizontalHeaderLabels(['Codigo', 'Nombre', 'Precio'])  # Encabezados de la tabla
+        self.model.setHorizontalHeaderLabels(['ID','Codigo', 'Nombre', 'Precio', 'Estado'])  # Encabezados de la tabla
 
         # Configurar el QTableView
         self.product_table.setModel(self.model)
         self.product_table.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.Stretch)  # Ajustar columnas al tamaño
 
-
+        self.product_table.setSelectionBehavior(QTableView.SelectionBehavior.SelectRows) # Se selecciona la fila completa
+        self.product_table.setSelectionMode(QTableView.SelectionMode.SingleSelection) # solo se selecciona una fila a la vez
 
         # Añadir los layouts y la tabla al layout principal
 
@@ -44,6 +45,8 @@ class gestionProductos(QWidget):
         # Establecer que las celdas no sean editables
         self.product_table.setEditTriggers(QTableView.EditTrigger.NoEditTriggers)
 
+
+
     def cargarProductos(self):
         self.model.setRowCount(0)  # Limpiar la tabla antes de cargar nuevos productos
 
@@ -52,17 +55,27 @@ class gestionProductos(QWidget):
             row_position = self.model.rowCount()
 
             # Crear los items y establecer los flags
-            item_id = QStandardItem(str(producto.getCodigo()))
-            item_id.setFlags(Qt.ItemFlag.ItemIsSelectable | Qt.ItemFlag.ItemIsEnabled)  # Solo seleccionable, no editable
+            item_id = QStandardItem(str(producto.getID()))
+            item_id.setFlags(
+                Qt.ItemFlag.ItemIsSelectable | Qt.ItemFlag.ItemIsEnabled)  # Solo seleccionable, no editable
+
+            item_cod = QStandardItem(str(producto.getCodigo()))
+            item_cod.setFlags(
+                Qt.ItemFlag.ItemIsSelectable | Qt.ItemFlag.ItemIsEnabled)  # Solo seleccionable, no editable
 
             item_nombre = QStandardItem(producto.getDescripcion())
-            item_nombre.setFlags(Qt.ItemFlag.ItemIsSelectable | Qt.ItemFlag.ItemIsEnabled)  # Solo seleccionable, no editable
+            item_nombre.setFlags(
+                Qt.ItemFlag.ItemIsSelectable | Qt.ItemFlag.ItemIsEnabled)  # Solo seleccionable, no editable
 
             item_precio = QStandardItem(str(producto.getPrecio()))
-            item_precio.setFlags(Qt.ItemFlag.ItemIsSelectable | Qt.ItemFlag.ItemIsEnabled)  # Solo seleccionable, no editable
+            item_precio.setFlags(
+                Qt.ItemFlag.ItemIsSelectable | Qt.ItemFlag.ItemIsEnabled)  # Solo seleccionable, no editable
 
+            item_estado = QStandardItem(str(producto.getEstado()))
+            item_estado.setFlags(
+                Qt.ItemFlag.ItemIsSelectable | Qt.ItemFlag.ItemIsEnabled)  # Solo seleccionable, no editable
             # Añadir los items al modelo
-            self.model.appendRow([item_id, item_nombre, item_precio])
+            self.model.appendRow([item_id,item_cod, item_nombre, item_precio,item_estado])
 
     def ventanaBuscar(self):
         # Crear el layout para la búsqueda
@@ -82,13 +95,47 @@ class gestionProductos(QWidget):
         manage_layout = QHBoxLayout()
         agregar_producto = QPushButton('Agregar Producto')  # Botón para agregar
         agregar_producto.clicked.connect(self.agregarProducto)
-        edit_button = QPushButton('Editar ')  # Botón para editar
-        delete_button = QPushButton('Eliminar Producto')  # Botón para eliminar
+        boton_editar = QPushButton('Editar ')  # Botón para editar
+        boton_eliminar = QPushButton('Deslistar Producto')  # Botón para eliminar
         manage_layout.addWidget(agregar_producto)  # Añadir botón de agregar
-        manage_layout.addWidget(edit_button)  # Añadir botón de editar
-        manage_layout.addWidget(delete_button)  # Añadir botón de eliminarProducto
+        manage_layout.addWidget(boton_editar)  # Añadir botón de editar
+        manage_layout.addWidget(boton_eliminar)  # Añadir botón de
+        boton_eliminar.clicked.connect(self.cambiarEstado)
         self.layout().addLayout(manage_layout)  # Añadir el layout de gestión
 
     def agregarProducto(self):
         ventana_agregar = wAgregarProducto(self, self.db_prods)
         ventana_agregar.exec()
+
+
+    def cambiarEstado(self):
+        index = self.product_table.selectionModel().currentIndex()  # obtengo la fila en la que estoy
+        row = index.row() #numero de la fila
+        id_producto = int(self.model.item(row, 0).text())
+
+
+
+
+
+        producto = self.db_prods.verProducto(id_producto)
+        print(producto)
+        producto.cambiarEstado()
+
+
+
+        err = self.db_prods.cambiarEstado(id_producto, producto.getEstado())
+
+        nuevo_estado = ""
+        if producto.getEstado() is True:
+            nuevo_estado = "Activado"
+        else:
+            nuevo_estado = "Desactivado"
+
+        if err is None:
+            QMessageBox.information(self, "Éxito", f"Producto {nuevo_estado} exitosamente.")
+            self.cargarProductos()
+        else:
+            QMessageBox.critical(self, "Error", f"No se pudo {nuevo_estado} el producto: {err}")
+
+
+

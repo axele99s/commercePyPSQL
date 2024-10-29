@@ -14,8 +14,8 @@ class productoDB:
         cursor.execute(query)
         rows = cursor.fetchall()
         for row in rows:
-           idprod,idmarca, idcategoria,descripcion,codigo,precio = row
-           prod = Producto(idprod,idmarca,idcategoria,descripcion,codigo,precio)
+           idprod,idmarca, idcategoria,descripcion,codigo,precio,estado = row
+           prod = Producto(idprod,idmarca,idcategoria,descripcion,codigo,precio,estado)
            self.productos.append(prod)
 
     def agregarProducto(self, prod: Producto):
@@ -43,3 +43,22 @@ class productoDB:
 
     def getProductos(self):
         return self.productos
+
+    def cambiarEstado(self, id,estado):
+        cursor = self.db_con.cursor()
+
+        query2 = "UPDATE producto SET estado = %s WHERE idproducto = %s"
+
+        try:
+            cursor.execute(query2, (estado,id,))
+            self.db_con.commit()
+            return None
+        except Exception as e:
+            return str(e)
+
+
+    def verProducto(self,id):
+        for producto in self.productos:
+            if producto.idProducto == id :
+                return producto
+        return None
